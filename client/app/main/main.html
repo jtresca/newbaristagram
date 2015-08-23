@@ -1,0 +1,22 @@
+<div ng-hide="betaUser" class="container">
+<div class="row">
+  <div class="col-xs-12" style="text-align:center;">
+    <img src="../../assets/images/baristagram_logo.svg" alt=""/ width="200px"><br>
+    <input ng-model="user"/><button ng-click="logIn(user)" class="primary" style="padding: 2px 22px;margin-top: 12px;margin-left: 8px;font-size: 17px;">Log In</button>
+  </div>
+</div>
+</div>
+<div class="row" ng-show="intialLoader && betaUser">
+  <div class="col-xs-12" style="text-align:center;">
+    <img src="../../assets/images/spinner.gif"/>
+  </div>
+</div>
+
+<div ng-show="betaUser && !intialLoader">
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+  <div ng-include="'components/menu/menu.html'"></div>
+  <div ng-include="'components/my-orders/my-orders.html'"></div>
+  <div ng-include="'components/footer/footer.html'"></div>
+
+</div>

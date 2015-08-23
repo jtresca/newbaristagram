@@ -1,0 +1,140 @@
+<div class="order-wrapper" ng-show="navActive == 'orders'">
+<section>
+    <article class="currentorder" ng-repeat="order in userOrders | orderBy: 'date' : true | limitTo: 2 | filter: 'brewing'">
+        <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2>{{order.size}} {{order.drink}}</h2>
+                            <span ng-show="order.drink != 'espresso' || order.milk == 'none'"><p>with <strong>{{order.milk}} milk</strong></span></span><span ng-show="order.shot == 'yes'"> plus an <strong>extra shot</strong></span>. <span ng-show="order.foam == 'yes'">Preferably <strong>foam</strong> removed.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="lineplace-circle">
+                                <div class="place-number">{{inFront + 1}}</div>
+                            </div>
+                            <h8>LINE PLACE</h8>
+                        </div>
+                         <div class="col-xs-9 person">
+                             <div class="one" ng-class="{placeinline: inFront == 0}"></div>
+                             <div class="two" ng-class="{placeinline: inFront == 1}" ></div>
+                             <div class="three" ng-class="{placeinline: inFront == 2}"></div>
+                             <div class="four" ng-class="{placeinline: inFront == 3}"></div>
+                             <div class="five" ng-class="{placeinline: inFront == 4}"></div>
+                             <div class="six" ng-class="{placeinline: inFront == 5}"></div>
+                             <div class="seven" ng-class="{placeinline: inFront == 6}"></div>
+                             <div class="eight" ng-class="{placeinline: inFront == 7}"></div>
+                             <div class="nine" ng-class="{placeinline: inFront == 8}"></div>
+                             <div class="ten last-five" ng-class="{placeinline: inFront == 9}"></div>
+                             <div class="eleven last-five" ng-class="{placeinline: inFront == 10}"></div>
+                             <div class="twelve last-five" ng-class="{placeinline: inFront == 11}"></div>
+                             <div class="thirteen last-five" ng-class="{placeinline: inFront == 12}"></div>
+                             <div class="fourteen last-five" ng-class="{placeinline: inFront == 13}"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>DATE</strong><br>{{order.date | date:'shortDate'}}
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>PICKUP</strong><br>{{pickupTime}}
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>STATUS</strong><br>
+                                <span>{{order.status}}</span>
+                            </div>
+                        </div>  
+                    </div>
+            <button ng-show="inFront > 2" ng-click="updateStatus(order._id)" class="cancel-order-button">Cancel Order
+            </button>
+        </div>
+    </article>
+    <article class="currentorder" ng-repeat="order in userOrders | orderBy: 'date' : true | limitTo: 2 | filter: 'queued'">
+        <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2>{{order.size}} {{order.drink}}</h2>
+                            <span ng-show="order.drink != 'espresso' || order.milk == 'none'"><p>&nbsp;with <strong>{{order.milk}} milk</strong></span></span><span ng-show="order.shot == 'yes'"> plus an <strong>extra shot</strong></span>. <span ng-show="order.foam == 'yes'">Preferably <strong>foam</strong> removed.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="lineplace-circle">
+                                <div class="place-number">{{inFront + 1}}</div>
+                            </div>
+                            <h8>LINE PLACE</h8>
+                        </div>
+                         <div class="col-xs-9 person">
+                             <div class="one" ng-class="{placeinline: inFront == 0}"></div>
+                             <div class="two" ng-class="{placeinline: inFront == 1}" ></div>
+                             <div class="three" ng-class="{placeinline: inFront == 2}"></div>
+                             <div class="four" ng-class="{placeinline: inFront == 3}"></div>
+                             <div class="five" ng-class="{placeinline: inFront == 4}"></div>
+                             <div class="six" ng-class="{placeinline: inFront == 5}"></div>
+                             <div class="seven" ng-class="{placeinline: inFront == 6}"></div>
+                             <div class="eight" ng-class="{placeinline: inFront == 7}"></div>
+                             <div class="nine" ng-class="{placeinline: inFront == 8}"></div>
+                             <div class="ten last-five" ng-class="{placeinline: inFront == 9}"></div>
+                             <div class="eleven last-five" ng-class="{placeinline: inFront == 10}"></div>
+                             <div class="twelve last-five" ng-class="{placeinline: inFront == 11}"></div>
+                             <div class="thirteen last-five" ng-class="{placeinline: inFront == 12}"></div>
+                             <div class="fourteen last-five" ng-class="{placeinline: inFront == 13}"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>DATE</strong><br>{{order.date | date:'shortDate'}}
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>PICKUP</strong><br>{{pickupTime}}
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="date">
+                                <strong>STATUS</strong><br>
+                                <span>{{order.status}}</span>
+                            </div>
+                        </div>  
+                    </div>
+            <button ng-show="inFront > 2" ng-click="updateStatus(order._id)" class="cancel-order-button">Cancel Order
+            </button>
+        </div>
+    </article>
+    <article class="order-history" ng-repeat="order in userOrders | orderBy: 'date' : true | limitTo: 9 | filter: 'completed'">
+        <div ng-class-odd="'odd'" ng-class-even="'even'">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2><span ng-show="$first && recentCompletion" class="text-alert">READY FOR PICKUP!<br></span>{{order.size}} {{order.drink}}</h2>
+                         <span ng-show="order.drink != 'espresso' || order.milk == 'none'"><p> with <strong>{{order.milk}} milk</strong></span></span><span ng-show="order.shot == 'yes'"> plus an <strong>extra shot</strong></span>. <span ng-show="order.foam == 'yes'">Preferably <strong>foam</strong> removed.</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="date">
+                            <strong>DATE</strong> {{order.date | date:'shortDate'}}
+                            <br><strong>TIME</strong> {{order.date | date:'h:mm a'}}
+                        </div>
+                    <div class="status">
+                        <strong>STATUS</strong> <span ng-class="{textalert: $first && recentCompletion}">{{order.status}} </span><span class="textalert" ng-show="$first && recentCompletion" class="text-alert"> {{order.endTime | date:'h:mm a'}}</span>
+                    </div>
+                        <a href="" class="re-order" ng-hide="isQueued || !storeOpen || isBrewing || loader" ng-click="reOrder(order)">Re-order</a>
+                        <img ng-show="loader" src="images/spinner.gif"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+<section>
+</div>

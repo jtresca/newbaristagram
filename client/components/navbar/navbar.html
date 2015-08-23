@@ -1,0 +1,32 @@
+<header>
+    <div class="mobile-login-bar">
+        <div class="container">
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="logo pull-left">hello, {{user}} <a href="/admin" class="text-alert" ng-show="admin"> admin</a></div>
+                <div class="welcome pull-right"><a href="http://my.glgroup.com">logout</a></div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-sub-bar">
+        <div class="container">
+            <div class="row">
+               <img src="../../assets/images/baristagram_logo.svg" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav cf">
+
+        <div class="nav-option divider-right" ng-class="{active: navActive=='menu'}" ng-click="navSelect('menu')">
+            <h1 id="action-text">menu</h1>
+        </div>
+    
+        <div class="nav-option divider-left" ng-class="{active: navActive=='orders'}" ng-click="navSelect('orders')">
+            <h1 id="action-text">orders</h1>
+        </div>
+
+    </div>
+</header>

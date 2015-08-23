@@ -1,0 +1,110 @@
+
+<section class="store-closed" ng-show="navActive == 'menu' && !storeOpen">
+    <h1>COFFEE BAR IS CLOSED</h1>
+</section>
+
+<div class="menu-wrapper" ng-show="navActive == 'menu' && storeOpen">
+    <section class="stat-board">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+
+            <h2 ng-show="isQueued"><strong>{{inFront}}</strong> <span ng-show="inFront > '1' || inFront == '0'">People are</span><span ng-show="inFront == '1'">Person is</span> ahead of you.</h2>
+
+            <h2 ng-hide="isBrewing || isQueued || inFront == '0'"><strong>{{queuedAllUserOrders.length}}</strong> <span ng-show="queuedAllUserOrders.length > '1'">people are</span><span ng-show="queuedAllUserOrders.length == '1'">person is</span> in line for coffee.</h2>
+           <!--  <h2 ng-show="wasCancelled" class="text-alert">This order was cancelled.</h2> -->
+            <h2 ng-show="recentCompletion" class="text-alert">Your order is ready for pickup!</h2>
+            
+            <h2 ng-show="!isQueued && queuedAllUserOrders.length == '0'">No one is in line for coffee.</h2>
+
+            <h2 ng-show="isBrewing">Your drink is being brewed.</h2>
+
+            <h2><strong class="est-time">{{pickupTime}}</strong> is your estimated pickup time<span ng-show="!isQueued"> if you order now</span>.</h2>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img class="drink-img" src="../../assets/images/mediumdrink.svg" alt=""/>
+                    
+                    <select class="drink-select" ng-class="{validate: validateDrink}" ng-options="drink as drink.name for drink in drinkOptions" ng-model="selecteddrink" ng-change="buildDrink(selecteddrink.name)">
+                        <option value="">select a drink</option>
+                    </select>
+                    
+                    <p class="drink-description" ng-hide="selecteddrink">After selecting your drink type, please provide any additional ingredients from the options below so the barista can prepare your drink to your liking. Please note all drink options are 'double shots' by standard. Sweeteners will be available upon pickup.</p>
+                    <p class="drink-description">{{selecteddrink.description}}</p>
+                </div>
+            </div>
+            
+            <form novalidate class="drink-form">
+                <div class="row" ng-show="fieldSize">
+                    <div class="col-xs-4">
+                        <label for="">*size</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select type="text" ng-class="{validate: validateSize }" class="drink-size" ng-options="size for size in selecteddrink.size" ng-model="orderform.size">
+                            <option value="">select a size</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="fieldFoam">
+                    <div class="col-xs-4">
+                        <label for="">*foam</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select type="text" ng-class="{validate: validateFoam }" ng-options="foam for foam in selecteddrink.foam" ng-model="orderform.foam">
+                            <option value="">remove foam?</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="fieldMilk">
+                    <div class="col-xs-4">
+                        <label for="">*milk</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select type="text" ng-class="{validate: validateMilk }" ng-options="milk for milk in selecteddrink.milk" ng-model="orderform.milk">
+                            <option value="">select a milk</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="fieldShot">
+                    <div class="col-xs-4">
+                        <label for="">*shot</label>
+                    </div>
+                    <div class="col-xs-8">
+                        <select type="text" ng-class="{validate: validateShot }" ng-options="shot for shot in selecteddrink.shot" ng-model="orderform.shot">
+                            <option value="">add extra shot?</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div ng-show="showOrder">
+                    <p class="order-summary">
+                    You've chosen a <strong>{{orderform.size}} {{selecteddrink.name}}</strong><span ng-hide="selecteddrink.name == 'espresso' || orderform.milk == 'none' || !orderform.milk"> with <strong>{{orderform.milk}} milk</strong></span><span ng-show="orderform.shot == 'yes'"> plus an <strong>extra shot</strong></span>. <span ng-show="orderform.foam == 'yes'">Preferably <strong>foam</strong> removed.</span>
+                    </p>
+
+                    <div class="text-alert" ng-show="validateQueue">Sorry, please wait until your first drink is completed before ordering again.</div>
+                    <div class="text-alert" ng-show="validateStore">Sorry, the coffee bar has closed. We apologize for the inconvience.</div>
+
+                    <div class="button-wrapper">
+                        <button class="primary" ng-hide="loader" ng-click="newOrder(selecteddrink.name, orderform)">order this</button><br>
+                        <img ng-show="loader" src="images/spinner.gif"/>
+                        <button class="secondary" ng-hide="loader" ng-click="reset();">no, start over</button>
+                    </div>
+                </div>
+            </form>
+            <section>{{orderform | json}}<br></section>
+        <!--
+        <pre>form = {{orderform | json}}</pre>
+        <pre>master = {{master | json}}</pre> -->
+        </div>
+    </section>
+</div>

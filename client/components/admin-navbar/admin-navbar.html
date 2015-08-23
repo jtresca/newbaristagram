@@ -1,0 +1,54 @@
+<section class="admin">
+	<div class="fixed-admin-nav">
+
+		<div class="logo-container row">
+		        <img class="logo" src="../../assets/images/baristagram_logo.svg" alt=""/>
+
+		        <button ng-click="changeStoreStatus()" class="pull-right shop-control">The shop is {{store}}</button>
+		</div>
+
+		<div class="info-container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1>welcome to your barista queue, {{user}}</h1>
+				</div>
+			</div>
+
+	        <div class="row">
+				<div class="col-xs-2">
+					<span class="large-text">{{totalCurrentOrders}}</span><span class="standard-text">queued</span>
+				</div>
+				<div class="col-xs-2">
+					<span ng-class="{vipcount: vipCounter == true}" class="large-text">{{totalVipOrders}}</span><span class="standard-text">VIP</span>
+				</div>
+			
+				<div class="col-xs-4">
+					<span class="large-text">{{minutesElapsed + 'm'}}</span><span class="large-text-secondary">{{secondsElapsed+ 's'}}</span><span class="standard-text">last drink time</span>
+				</div>
+				<div class="col-xs-4">
+					<span class="large-text">{{averageMinutes + 'm'}}</span><span class="large-text-secondary">{{averageSeconds + 's'}}</span><span class="standard-text">average time</span>
+				</div>
+			</div>
+			
+			<div class="row">
+					<div class="col-sm-4">
+						<span class="bold-standard-text">{{queuedTotalHours+"h"+"&nbsp;"+queuedTotalMinutes+"m"}}</span><span class="standard-text">to complete queued</span>
+					</div>
+					<div class="col-sm-4">
+						<span class="bold-standard-text">status</span><span class="standard-text">{{store +' for business'}}</span>
+					</div>	
+					<div class="col-sm-4">
+						<button ng-click="showHistoryBtn()" class="button primary">{{historyLabel}}</button>
+					</div>
+			</div>
+		</div>
+			
+        <div class="heading-container row">
+        	<div class="col-xs-2 heading-text">cancel</div>
+        	<div class="col-xs-2 heading-text">customer</div>
+        	<div class="col-xs-3 heading-text">date/time</div>
+        	<div class="col-xs-2 heading-text">drink</div>
+        	<div class="col-xs-2 heading-text">details</div>
+        </div>
+    </div>
+</section>

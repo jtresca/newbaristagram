@@ -1,0 +1,515 @@
+// .thing-form {
+//   margin: 20px 0;
+// }
+
+// #banner {
+//     border-bottom: none;
+//     margin-top: -20px;
+// }
+
+// #banner h1 {
+//     font-size: 60px;
+//     line-height: 1;
+//     letter-spacing: -1px;
+// }
+
+// .hero-unit {
+//     position: relative;
+//     padding: 30px 15px;
+//     color: #F5F5F5;
+//     text-align: center;
+//     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+//     background: #4393B9;
+// }
+
+// .footer {
+//     text-align: center;
+//     padding: 30px 0;
+//     margin-top: 70px;
+//     border-top: 1px solid #E5E5E5;
+// }
+
+// @icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+// // @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+// // @import 'fonts';
+// // @import 'colors';
+
+/* Space out content a bit */
+body {
+   font-family: 'font_35';
+   color: @lighttan;
+   letter-spacing: .1em;
+   background-color: @mainbg;
+}
+
+.container {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+input {
+    background: none;
+    outline: 0;
+    border: solid 1px @lighttan;
+    padding: .3em;
+}
+
+a, a:hover {
+    color: #c6af9b;
+    text-decoration: none;
+}
+
+/* Custom page header */
+header { 
+    img {
+        width: 91%;
+        padding: 1.4em 0;
+    }
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'font_55';
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+h2 {
+    font-family: 'font_35';
+    font-size: 2em;
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+h3 {
+
+}
+
+label {
+    font-size: 1.3em;
+    line-height: 1.1em;
+    font-family: 'font_55';
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    // -webkit-padding-end: 20px;
+    // -moz-padding-end: 20px;
+    // -webkit-padding-start: 2px;
+    // -moz-padding-start: 2px;
+    background: none;
+    border-radius: 0;
+    border: solid 1px @lighttan;
+    width: 100%;
+    padding: 8px 45px 5px 10px;
+    font-size: 1.3em;
+    line-height: 1.1em;
+    font-family: 'font_25';
+    background: url("../../assets/images/dropdownsvg.svg") no-repeat 95% 9px;
+    background-size: 32px;
+    letter-spacing: .1em;
+}
+@media only screen and (max-width: 525px) {  
+    select {
+       font-size: .9em;
+       background-size: 18px;
+       padding: 8px 30px 5px 10px;
+   }
+}
+
+.button-wrapper {
+    display: block;
+    text-align: center;
+}
+
+button {
+    font-size: 1.8em;
+    border: none;
+    padding: .2em .6em 0 .6em;
+    font-family: 'font_55';
+    letter-spacing: .05em;
+}
+
+button.primary {
+    background: @lighttan;
+        color: @darkbrown;
+}
+
+button.secondary {
+
+    font-size: 1.4em;
+    background: none;
+    font-family: 'font_35';
+}
+
+button.tertiary {
+    background: @darkbrown;
+        color: @lighttan;
+}
+
+.order-summary {
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 1.5em;
+    font-family: 'font_25';
+    color: #948477;
+    strong {
+        font-family: 'font_55';
+        color: @lighttan;
+    }
+}
+
+.drink-description {
+    font-size: 1.1em;
+    margin: .9em 0;
+}
+
+.drink-form {
+    text-align: right;
+    .row {
+        margin-bottom: 10px;
+    }
+    label {
+       margin-top: 9px;
+    }
+
+    @media only screen and (max-width: 525px) {  
+        label, select {
+           font-size: .9em;
+        }
+    }
+}
+
+.odd {
+    background:@lightgray;
+}
+.even {
+    background:@darkgray;
+}
+
+.currentorder {
+    background: #3d281a; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #3d281a 0%, #2a1d12 54%, #160f09 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#3d281a), color-stop(54%,#2a1d12), color-stop(100%,#160f09)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #3d281a 0%,#2a1d12 54%,#160f09 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #3d281a 0%,#2a1d12 54%,#160f09 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #3d281a 0%,#2a1d12 54%,#160f09 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #3d281a 0%,#2a1d12 54%,#160f09 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d281a', endColorstr='#160f09',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    position: relative;
+    padding-bottom:40px;
+
+    .lineplace-circle {
+        border-radius: 100%;
+        border: 2px solid #C6AF9B;
+        height: 75px;
+        width: 75px;
+        max-height: 75px;
+        max-width: 75px;
+        text-align: center;
+        margin-left: 3px;
+        margin-bottom: 15px;
+
+        .place-number {
+        font-size: 3em;
+        margin-top: 9px;   
+        }
+    
+    }
+
+    .cancel-order-button {
+        font-size: 1.8em;
+        border: none;
+        padding: .2em .6em 0 .6em;
+        font-family: 'font_55';
+        letter-spacing: .05em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: @warningred;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+
+    .person {
+        
+        div {
+            width: 4.9%;
+            height: 110px;
+            margin: 1% 0.3%;
+            display: inline-block;
+
+            &.placeinline {
+                background: url("../../assets/images/line_user.svg") no-repeat !important;
+                background-size:100% !important;
+            }
+
+            
+            &.one {
+                background: url("../../assets/images/line_woman_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.two{
+                background: url("../../assets/images/line_man_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.three{
+                background: url("../../assets/images/line_woman_b.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.four{
+                background: url("../../assets/images/line_man_b.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.five{
+                background: url("../../assets/images/line_woman_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.six{
+                background: url("../../assets/images/line_man_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.seven{
+                background: url("../../assets/images/line_woman_b.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.eight{
+                background: url("../../assets/images/line_man_a.svg") no-repeat;
+                background-size: 100%; 
+            }
+            &.nine{
+                background: url("../../assets/images/line_woman_b.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.ten{
+                background: url("../../assets/images/line_man_b.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.eleven{
+                background: url("../../assets/images/line_woman_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.twelve{
+                background: url("../../assets/images/line_man_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.thirteen{
+                background: url("../../assets/images/line_woman_a.svg") no-repeat;
+                background-size: 100%;
+            }
+            &.fourteen{
+                background: url("../../assets/images/line_man_b.svg") no-repeat;
+                background-size: 100%;
+            }
+
+        }
+        @media only screen and (max-width: 525px) {  
+            div  {
+             width:8.7%;   
+            }
+
+            .last-five {
+               display:none !important; 
+            }
+        }
+    }
+
+    @media only screen and (max-width: 525px) { 
+       .lineplace-circle {
+            height: 55px;
+            width: 55px;
+            margin-left: 0px;
+            margin-bottom: 10px;
+
+            .place-number {
+                margin-top: 0;   
+            }
+        }
+        h8 {
+            font-size: 9px;
+            position: absolute;
+            white-space:nowrap;
+        }   
+    }
+}
+
+
+.mobile-login-bar {
+    background-color: #45403C;
+    font-size: 1.4em;
+    color: #c6af9b;
+    .row {
+        padding: .8em 0;
+    }
+}
+
+.mobile-nav {    
+        background: @darkgray;
+        #action-text {
+            color: @graytan;
+            font-size: 3.2em;
+            font-family: 'font_55';
+            padding: .3em 0;
+            padding-bottom: .2em;
+            text-align:center;
+        }
+        .nav-option {
+            cursor: pointer;
+            width: 50%;
+            float: left;
+            background: @darkgray;
+            border-bottom: 5px solid transparent;
+                &.divider-right {
+                    border-right: 1px solid #444;
+                }
+                &.divider-left {
+                    border-left: 1px solid #444;
+                }
+        }
+        .nav-option.active {
+            border-bottom: 5px solid #c6af9b;
+        }
+}
+
+.stat-board {
+    color: @graytan;
+    padding: 1em 0;
+    strong {
+        color: #948477;
+        font-size: 1.6em;
+    }
+}
+section.store-closed {
+    text-align: center;
+    padding: 40px 0;
+    color: @warningred;
+}
+
+section.menu {
+    padding: @section-padding 0;
+    background: @lightgray;
+    .drink-select {
+        width: 60%;
+    }
+    .menu-options {
+        padding: 2em 0;
+        h2 {
+            display: inline-block;
+        }
+        span {
+            font-size: 3em;
+            font-weight: bold;
+            line-height: .8em;
+        }
+    }
+    .drink-img {
+        width: 2.6em;
+        margin-right: 1.2em;
+        vertical-align: bottom;
+    }
+}
+
+
+
+article {
+    .row {
+        padding: 1em 0;
+    }
+    a {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-family: 'font_55';
+        margin-top: .5em;
+        display: inline-block;
+    }
+    h2 {
+        margin-top: 0;
+    }
+    p {
+        font-family: 'font_25';
+        font-size: 1.2em;
+        strong {
+            font-family: 'font_55'
+        }
+    }
+    .date, .status {
+        text-transform: uppercase;
+        strong{
+            font-family: 'font_55';
+            margin-right: .5em;
+        }
+
+    }
+}
+
+
+
+
+.logo-sub-bar {
+    background-color: #2e1e12;
+    text-align: center;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.with-love {
+    margin-top: 1.2em;
+}
+
+.validate {
+    border: solid 1px #E24D31;
+}
+
+.text-alert {
+    color:@warningred;
+}
+
+.textalert {
+    color:@warningred;
+}
+
+.validate-highlight{
+    color:@warningred;
+    text-align:center;
+    margin: 20px 0;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
+// @import 'admin';
+
+
+
+
+

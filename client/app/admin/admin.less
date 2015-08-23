@@ -1,0 +1,169 @@
+@import '../colors';
+
+.admin {
+
+	.fixed-admin-nav {
+		position: fixed;
+		top:0;
+		z-index:1000;
+		width: 100%;
+		z-index: 9999;
+	}
+
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
+	button {
+		font-size: 1.2em;
+		font-family: 'font_35';
+	}
+
+	.content-push {
+		margin-top: 228px;
+	}
+
+	@media only screen and (max-width: 767px) {  
+	    .content-push {
+			margin-top: 254px;
+		}
+	}
+
+	@media only screen and (max-width: 685px) {  
+	    .content-push {
+			margin-top: 267px;
+		}
+	}
+
+	.under-button {
+		width: 100px;
+		height: 110px;
+		background: @lighttan;
+		color: @darkbrown;
+		position: relative;
+		float: right;
+		z-index:1;
+		top: -110px;
+		font-family: 'font_55';
+	}
+
+	.brown-button {
+		background: @darkbrown;
+		color: @lighttan;
+		position: relative;
+		border: 1px solid rgb(39, 24, 13);
+		top: -110px;
+		float: right;
+		width: 100px;
+		height: 110px;
+		z-index: 9998;
+		font-family: 'font_55';
+	}
+
+	.ingredients {
+		font-size: .9em;
+		line-height: 1.3em;
+	}
+
+	.logo {
+		max-width: 12%; 
+		max-height: 12%;
+		min-width: 285px;
+		min-height: 50px;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		margin-left: 1em;
+	}
+
+	.logo-container {
+		background: @darkbrown;
+	}
+
+	.info-container {
+		padding-bottom: 10px;
+		background: @mainbg;
+	}
+	
+	.shop-control {
+		background:none;
+		vertical-align:center;
+		color: #c6af9b;
+		margin-top: 20px;
+		font-size: 1.7em;
+	}
+
+	h1 {
+		font-family: 'font_35';
+		padding-top: 15px;
+		font-size: 1.7em;
+	}
+
+	.standard-text {
+		font-family: 'font_35';
+		font-size: 1em;
+	}
+
+	.bold-standard-text {
+		font-family: 'font_35';
+		font-size: 1.3em;
+		padding-right: 10px;
+	}
+
+	.large-text {
+		font-family: 'font_45';
+		padding-right: 10px;
+		font-size: 2.3em;
+	}
+
+	.large-text-secondary {
+		font-family: 'font_45';
+		padding-left: 5px;
+		padding-right: 10px;
+		font-size: 2.1em;
+	}
+
+	.heading-container {
+		background-color: #22170e;
+	}
+	.heading-text {
+		font-family: 'font_55';
+		font-size: 1.5em;
+	}
+	.info-text {
+		font-family: 'font_35';
+		font-size: 1em;
+	}
+
+	.individual-order {
+		min-height: 110px;
+		position: relative;
+		border-right-style: solid;
+   		border-right-color: @warningred;
+	}
+
+	.history-individual-order {
+		min-height: 110px;
+		position: relative;
+	}
+
+	.pendingorder {
+		opacity: 0.6;
+	}
+
+	.viporder {
+		background: @viporange;
+	}
+
+	.vipcount {
+		color: @warningred;
+	}
+
+	div[id*='rowname'] {
+		z-index:2;
+		position:relative;
+		height: 110px;
+	}
+
+}
+

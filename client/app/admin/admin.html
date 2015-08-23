@@ -1,0 +1,56 @@
+<div ng-include="'components/admin-navbar/admin-navbar.html'"></div>
+
+<section class="admin">
+  <div class="content-push">
+      
+    <div ng-show="queuedAllUserOrders == '' && noUsersMessageToggle == 'showMessage'" class="text-alert" style="text-align:center;margin-top:20px;"><br>No one has ordered anything.</div>
+
+    <article ng-hide="showHistory" class="order-history" ng-repeat="order in queuedAllUserOrders | orderBy: 'date' : reverse">
+        <div id="rowname{{order._id}}" class="row individual-order" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{viporder: order.vip == 'true', pendingorder: order.status == 'queued'}">
+
+                  <a class="col-xs-2"><img ng-click="updateStatus(order._id, 'cancel')" width="50px" src="../../assets/images/cancel.svg"/></a>
+            
+            <div class="info-text">    
+                  <div class="col-xs-2"><img ng-show="order.vip == 'true'" src="../../assets/images/vip.svg"/> {{order.customer}}</div>
+                  
+                  <div class="col-xs-3">{{order.date | date:'longDate'}}<br>{{order.date | date:'h:mm a'}}</div>
+                  
+                  <div class="col-xs-2">{{order.size}} {{order.drink}}</div>
+                  
+                  <div class="col-xs-2 ingredients">
+                      <span ng-show="order.milk && order.milk !='none'">{{order.milk}} milk<br></span>
+                      <span ng-show="order.foam == 'yes'">remove foam<br></span>
+                      <span ng-show="order.shot == 'yes'">1 extra shot<br></span>
+                  </div>
+            </div>
+        </div>
+
+        <button ng-show="order.status == 'queued'"ng-click="updateStatus(order._id, order.status); startDrink()" class="brown-button">start</button>
+        <button ng-show="order.status == 'brewing'" ng-click="updateStatus(order._id, order.status); stopDrink()" class="under-button">done</button>
+
+    </article>
+
+    <article ng-show="showHistory" class="order-history" ng-repeat="order in allUserHistory | orderBy: 'date' : reverse | limitTo: 10">
+        <div class="row history-individual-order" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{viporder: order.vip == 'true'}">
+
+                  <div class="col-xs-2"></div>
+            
+            <div class="info-text">    
+                  <div class="col-xs-2"><img ng-show="order.vip" src="../../assets/images/vip.svg"/> {{order.customer}}</div>
+                  
+                  <div class="col-xs-3">{{order.date | date:'longDate'}}<br>ordered {{order.date | date:'h:mm a'}}<br>{{order.status}} {{order.endTime | date:'h:mm a'}}</div>
+                  
+                  <div class="col-xs-2">{{order.size}} {{order.drink}}</div>
+                  
+                  <div class="col-xs-2 ingredients">
+                      <span ng-show="order.milk && order.milk !='none'">{{order.milk}} milk<br></span>
+                      <span ng-show="order.foam == 'yes'">remove foam<br></span>
+                      <span ng-show="order.shot == 'yes'">1 extra shot<br></span>
+                  </div>
+            </div>
+        </div>
+
+    </article>
+  </div>
+
+</section>
